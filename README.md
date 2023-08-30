@@ -1,3 +1,3 @@
 # e-commerseShop
 
- [<img src="assets/video/myappVideo.mp4" ]
+ [<img src="assets/video/myappVideo.mp4">]
