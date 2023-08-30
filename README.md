@@ -1,3 +1,3 @@
 # e-commerseShop
 
-![video](assets/video/myappVideo.mp4)
+ assets/video/myappVideo.mp4
