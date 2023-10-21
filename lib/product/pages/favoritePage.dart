@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/providers/favorite_provider.dart';
+import 'package:flutter_application_1/product/providers/favorite_provider.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class favoritePage extends StatefulWidget {

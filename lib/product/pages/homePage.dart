@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/cart_details.dart';
-import 'package:flutter_application_1/pages/favoritePage.dart';
-import 'package:flutter_application_1/pages/profilePage.dart';
+import 'package:flutter_application_1/product/pages/cart_details.dart';
+import 'package:flutter_application_1/product/pages/favoritePage.dart';
+import 'package:flutter_application_1/product/pages/profilePage.dart';
 
 import 'homePageScreen.dart';
 

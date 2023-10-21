@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/model/my_product.dart';
-import 'package:flutter_application_1/pages/detailsScreen.dart';
-import 'package:flutter_application_1/widgets/product_card.dart';
+import 'package:flutter_application_1/product/model/my_product.dart';
+import 'package:flutter_application_1/product/pages/detailsScreen.dart';
+import 'package:flutter_application_1/product/widgets/product_card.dart';
 
 class homePageScreen extends StatefulWidget {
   const homePageScreen({super.key});

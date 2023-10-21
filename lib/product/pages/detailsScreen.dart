@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/model/product.dart';
-import 'package:flutter_application_1/pages/cart_details.dart';
-import 'package:flutter_application_1/providers/cart_provider.dart';
-import 'package:flutter_application_1/widgets/avaible_size.dart';
+import 'package:flutter_application_1/product/model/product.dart';
+import 'package:flutter_application_1/product/pages/cart_details.dart';
+import 'package:flutter_application_1/product/providers/cart_provider.dart';
+import 'package:flutter_application_1/product/widgets/avaible_size.dart';
+
 
 class DetailsScreen extends StatelessWidget {
   final Product product;

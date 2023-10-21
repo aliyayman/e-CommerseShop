@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/providers/cart_provider.dart';
+import 'package:flutter_application_1/product/providers/cart_provider.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CartDetails extends StatefulWidget {
