@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/product/providers/favorite_provider.dart';
+import 'package:flutter_application_1/product/utility/constants/color_constants.dart';
+import 'package:flutter_application_1/product/utility/constants/string_constants.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class favoritePage extends StatefulWidget {
@@ -17,12 +19,12 @@ class _favoritePageState extends State<favoritePage> {
     return Scaffold(
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
                 Text(
-                  'Favorites',
+                  StringConstants.favoritesText,
                   style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
                 )
               ],
@@ -41,10 +43,10 @@ class _favoritePageState extends State<favoritePage> {
                         finalList.removeAt(index);
                         setState(() {});
                       },
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
+                      backgroundColor: ColorConstant.colorRed,
+                      foregroundColor: ColorConstant.colorWhite,
                       icon: Icons.delete,
-                      label: 'Delete',
+                      label: StringConstants.deleteLabel,
                     )
                   ]),
                   child: ListTile(
@@ -59,7 +61,7 @@ class _favoritePageState extends State<favoritePage> {
                     ),
                     leading: CircleAvatar(
                       radius: 30,
-                      backgroundColor: Colors.red.shade300,
+                      backgroundColor: ColorConstant.colorRedLight300,
                       backgroundImage: AssetImage(finalList[index].image),
                     ),
                     trailing: Text(

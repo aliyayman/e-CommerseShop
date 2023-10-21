@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/product/model/my_product.dart';
 import 'package:flutter_application_1/product/pages/detailsScreen.dart';
+import 'package:flutter_application_1/product/utility/constants/color_constants.dart';
+import 'package:flutter_application_1/product/utility/constants/string_constants.dart';
 import 'package:flutter_application_1/product/widgets/product_card.dart';
 
 class homePageScreen extends StatefulWidget {
@@ -19,15 +21,18 @@ class _homePageScreenState extends State<homePageScreen> {
       child: Column(
         children: [
           const Text(
-            "Our Products",
+            StringConstants.ourProductsText,
             style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildProductCategory(index: 0, name: 'All Product'),
-              _buildProductCategory(index: 1, name: 'Jackets'),
-              _buildProductCategory(index: 2, name: 'Sneakers')
+              _buildProductCategory(
+                  index: 0, name: StringConstants.allProductText),
+              _buildProductCategory(
+                  index: 1, name: StringConstants.jacketsText),
+              _buildProductCategory(
+                  index: 2, name: StringConstants.sneakersText)
             ],
           ),
           Expanded(
@@ -53,12 +58,14 @@ class _homePageScreenState extends State<homePageScreen> {
           margin: const EdgeInsets.only(top: 10, right: 10),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: isSelected == index ? Colors.red : Colors.red.shade300,
+            color: isSelected == index
+                ? ColorConstant.colorRed
+                : ColorConstant.colorRedLight300,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(
             name,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ),
       );
@@ -91,7 +98,12 @@ class _homePageScreenState extends State<homePageScreen> {
       itemCount: MyProduct.jacketsList.length,
       itemBuilder: (context, index) {
         final product = MyProduct.jacketsList[index];
-        return ProductCard(product: product);
+        return GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailsScreen(product: product))),
+            child: ProductCard(product: product));
       });
 
   Widget _buildSneakers() => GridView.builder(
@@ -104,6 +116,11 @@ class _homePageScreenState extends State<homePageScreen> {
       itemCount: MyProduct.snekaersList.length,
       itemBuilder: (context, index) {
         final product = MyProduct.snekaersList[index];
-        return ProductCard(product: product);
+        return GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailsScreen(product: product))),
+            child: ProductCard(product: product));
       });
 }

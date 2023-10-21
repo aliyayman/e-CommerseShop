@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/product/model/product.dart';
-import 'package:flutter_application_1/product/pages/cart_details.dart';
+import 'package:flutter_application_1/product/pages/cartDetails.dart';
 import 'package:flutter_application_1/product/providers/cart_provider.dart';
+import 'package:flutter_application_1/product/utility/constants/color_constants.dart';
+import 'package:flutter_application_1/product/utility/constants/string_constants.dart';
 import 'package:flutter_application_1/product/widgets/avaible_size.dart';
-
 
 class DetailsScreen extends StatelessWidget {
   final Product product;
@@ -15,7 +16,7 @@ class DetailsScreen extends StatelessWidget {
     final provider = CartProvider.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details'),
+        title: const Text(StringConstants.detailsTitle),
         centerTitle: true,
       ),
       body: Column(
@@ -31,7 +32,7 @@ class DetailsScreen extends StatelessWidget {
                 height: 220,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.red.shade100,
+                  color: ColorConstant.colorRedLight100,
                 ),
                 child: Image.asset(
                   product.image,
@@ -59,13 +60,13 @@ class DetailsScreen extends StatelessWidget {
                   children: [
                     Text(
                       product.name.toUpperCase(),
-                      style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 26, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       '${product.price}' '₺',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -78,13 +79,13 @@ class DetailsScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Avaible Size",
+                      StringConstants.avaibleSizeText,
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   children: [
                     AvaibleSize(size: "US 6"),
                     AvaibleSize(size: "US 7"),
@@ -92,38 +93,38 @@ class DetailsScreen extends StatelessWidget {
                     AvaibleSize(size: "US 9"),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Avaible Colors",
+                      StringConstants.avaibleColorsText,
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   children: [
                     CircleAvatar(
                       radius: 16,
-                      backgroundColor: Colors.blue,
+                      backgroundColor: ColorConstant.colorBlue,
                     ),
                     SizedBox(
                       width: 8,
                     ),
                     CircleAvatar(
                       radius: 16,
-                      backgroundColor: Colors.red,
+                      backgroundColor: ColorConstant.colorRed,
                     ),
                     SizedBox(
                       width: 8,
                     ),
                     CircleAvatar(
                       radius: 16,
-                      backgroundColor: Colors.yellow,
+                      backgroundColor: ColorConstant.colorYellow,
                     )
                   ],
                 )
@@ -139,7 +140,7 @@ class DetailsScreen extends StatelessWidget {
           width: double.infinity,
           height: MediaQuery.of(context).size.height / 10,
           decoration: const BoxDecoration(
-              color: Colors.red,
+              color: ColorConstant.colorRed,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10), topRight: Radius.circular(10))),
           child: Row(
@@ -147,7 +148,8 @@ class DetailsScreen extends StatelessWidget {
             children: [
               Text(
                 '${product.price}' '₺',
-                style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
               ),
               ElevatedButton.icon(
                   onPressed: () {
@@ -155,8 +157,8 @@ class DetailsScreen extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => CartDetails()));
                   },
-                  icon: Icon(Icons.send),
-                  label: Text("Add to Cart"))
+                  icon: const Icon(Icons.send),
+                  label: const Text(StringConstants.buttonText))
             ],
           ),
         ),

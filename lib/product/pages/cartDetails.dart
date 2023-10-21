@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/product/providers/cart_provider.dart';
+import 'package:flutter_application_1/product/utility/constants/color_constants.dart';
+import 'package:flutter_application_1/product/utility/constants/string_constants.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CartDetails extends StatefulWidget {
@@ -39,7 +41,7 @@ class _CartDetailsState extends State<CartDetails> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('My cart'),
+        title: const Text(StringConstants.cartAppbarTitle),
         centerTitle: true,
       ),
       body: Column(
@@ -57,10 +59,10 @@ class _CartDetailsState extends State<CartDetails> {
                         finalList.removeAt(index);
                         setState(() {});
                       },
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
+                      backgroundColor: ColorConstant.colorRed,
+                      foregroundColor: ColorConstant.colorWhite,
                       icon: Icons.delete,
-                      label: 'Delete',
+                      label: StringConstants.deleteLabel,
                     )
                   ]),
                   child: Slidable(
@@ -72,37 +74,39 @@ class _CartDetailsState extends State<CartDetails> {
                           finalList.removeAt(index);
                           setState(() {});
                         },
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white,
+                        backgroundColor: ColorConstant.colorRed,
+                        foregroundColor: ColorConstant.colorWhite,
                         icon: Icons.delete,
-                        label: 'Delete',
+                        label: StringConstants.deleteLabel,
                       )
                     ]),
-                    child: ListTile(
-                      title: Text(
-                        finalList[index].name,
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(
-                        '${finalList[index].price} ₺',
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      leading: CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.red.shade300,
-                        backgroundImage: AssetImage(finalList[index].image),
-                      ),
-                      trailing: Column(
-                        children: [
-                          _buildProductQuantity(Icons.add, index),
-                          Text(
-                            finalList[index].quantity.toString(),
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
-                          _buildProductQuantity(Icons.remove, index),
-                        ],
+                    child: Expanded(
+                      child: ListTile(
+                        title: Text(
+                          finalList[index].name,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          '${finalList[index].price} ₺',
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        leading: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: ColorConstant.colorRedLight300,
+                          backgroundImage: AssetImage(finalList[index].image),
+                        ),
+                        trailing: Column(
+                          children: [
+                            _buildProductQuantity(Icons.add, index),
+                            Text(
+                              finalList[index].quantity.toString(),
+                              style: const TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold),
+                            ),
+                            _buildProductQuantity(Icons.remove, index),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -115,8 +119,8 @@ class _CartDetailsState extends State<CartDetails> {
             alignment: Alignment.center,
             width: double.infinity,
             height: 100,
-            decoration: BoxDecoration(
-                color: Colors.white,
+            decoration: const BoxDecoration(
+                color: ColorConstant.colorWhite,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
@@ -131,7 +135,7 @@ class _CartDetailsState extends State<CartDetails> {
                   ElevatedButton.icon(
                       onPressed: () {},
                       icon: Icon(Icons.send),
-                      label: Text('Check Out'))
+                      label: const Text(StringConstants.checkOutLabel))
                 ]),
           )
         ],
