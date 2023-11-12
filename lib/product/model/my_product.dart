@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/model/product.dart';
+import 'package:flutter_application_1/product/model/product.dart';
 
 class MyProduct {
   static List<Product> allProducts = [
