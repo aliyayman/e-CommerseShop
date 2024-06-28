@@ -33,7 +33,7 @@ class _CartDetailsState extends State<CartDetails> {
           ),
           child: Icon(
             icon,
-            size: 20,
+            size: 18,
           ),
         ),
       );
@@ -48,6 +48,7 @@ class _CartDetailsState extends State<CartDetails> {
         children: [
           Expanded(
               child: ListView.builder(
+            shrinkWrap: true,
             itemCount: finalList.length,
             itemBuilder: (context, index) {
               return Padding(
