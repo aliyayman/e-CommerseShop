@@ -130,7 +130,7 @@ class _CartDetailsState extends State<CartDetails> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '${provider.getTotalPrice()} ₺',
+                    '${provider.getTotalPrice() > 0 ? provider.getTotalPrice() : 0}  ₺',
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                   ),
                   ElevatedButton.icon(
